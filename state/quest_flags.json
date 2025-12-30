@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "description": "Quest state flags for tracking campaign progression",
+    "updated": "2025-12-30",
+    "notes": "Use boolean for binary states, integers for counters"
+  },
+  "main_quest_flags": {
+    "helgen_escaped": false,
+    "bleak_falls_retrieved": false,
+    "dragonstone_delivered": false,
+    "whiterun_battle_complete": false,
+    "civil_war_joined": false,
+    "civil_war_side": null,
+    "thalmor_evidence_found": false,
+    "thalmor_evidence_revealed": false,
+    "peace_council_attempted": false,
+    "solitude_fallen": false,
+    "windhelm_fallen": false
+  },
+  "faction_quest_flags": {
+    "companions": {
+      "joined": false,
+      "werewolf_discovered": false,
+      "harbinger_title": false,
+      "glenmoril_witches_defeated": 0,
+      "kodlak_honored": false
+    },
+    "thieves_guild": {
+      "joined": false,
+      "mercer_betrayal_discovered": false,
+      "skeleton_key_retrieved": false,
+      "guild_restored": false,
+      "special_jobs_completed": 0
+    },
+    "dark_brotherhood": {
+      "joined": false,
+      "astrid_betrayed": false,
+      "emperor_contract_accepted": false,
+      "emperor_assassinated": false,
+      "listener_title": false
+    },
+    "college_of_winterhold": {
+      "joined": false,
+      "eye_of_magnus_discovered": false,
+      "ancano_defeated": false,
+      "arch_mage_title": false,
+      "staff_of_magnus_obtained": false
+    },
+    "dawnguard": {
+      "side_chosen": null,
+      "serana_met": false,
+      "auriel_bow_obtained": false,
+      "vampire_lord_unlocked": false,
+      "harkon_defeated": false
+    }
+  },
+  "daedric_quest_flags": {
+    "azuras_star": {
+      "started": false,
+      "completed": false,
+      "choice": null
+    },
+    "molag_bal": {
+      "started": false,
+      "completed": false,
+      "mace_obtained": false
+    },
+    "mehrunes_dagon": {
+      "started": false,
+      "pieces_collected": 0,
+      "completed": false
+    },
+    "waking_nightmare": {
+      "started": false,
+      "completed": false,
+      "skull_obtained": false
+    }
+  },
+  "side_quest_flags": {
+    "forsworn_conspiracy": {
+      "started": false,
+      "madanach_freed": false,
+      "silver_bloods_exposed": false
+    },
+    "blood_on_ice": {
+      "started": false,
+      "murders": 0,
+      "butcher_caught": false
+    },
+    "laid_to_rest": {
+      "started": false,
+      "movarth_defeated": false
+    }
+  },
+  "location_flags": {
+    "holds_visited": [],
+    "major_cities_visited": [],
+    "dragon_walls_discovered": 0,
+    "dragon_priests_defeated": 0,
+    "dwemer_ruins_explored": 0,
+    "word_walls_learned": 0
+  },
+  "relationship_flags": {
+    "jarl_balgruuf_trust": 0,
+    "ulfric_stormcloak_trust": 0,
+    "general_tullius_trust": 0,
+    "delphine_trust": 0,
+    "elenwen_suspicion": 0,
+    "maven_black_briar_favor": 0
+  },
+  "custom_flags": {
+    "notes": "Add campaign-specific flags here as needed"
+  }
+}

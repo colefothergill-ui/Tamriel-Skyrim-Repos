@@ -8,4 +8,4 @@ Include:
 - Complication
 - Rewards (aspects/extras/contacts)
 
-Also include secret hooks that can unlock Option 6.
+Also include secret hooks that can unlock Dragonbreak moments.
