@@ -8,10 +8,10 @@ Run:
 
 Copy the output into a chat session or a planning doc.
 
-## Check for a Secret Turn (Option 6)
+## Check for a Secret Turn (Dragonbreak)
 Run:
-- `python scripts/secret_turn_check.py`
+- `python scripts/dragonbreak_cue.py`
 
-If eligible, surface Option 6 at the next decision point.
+If eligible, surface a Dragonbreak moment at the next decision point.
 
 DONE.

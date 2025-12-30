@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "description": "Party state tracking for current companions and cohesion",
+    "updated": "2025-12-30",
+    "notes": "Track active companions, party cohesion clock, and morale"
+  },
+  "active_companions": [],
+  "companion_notes": {
+    "notes": "Add companion-specific notes here as they join/leave"
+  },
+  "party_cohesion_clock": {
+    "current": 0,
+    "max": 6,
+    "note": "Ticks up with successful cooperation, ticks down with conflict. At 0, risk of party split. At max, party gains +1 to teamwork invoking."
+  },
+  "morale": {
+    "level": "neutral",
+    "options": ["broken", "low", "neutral", "high", "inspired"],
+    "note": "Affects willingness to take risks and face challenges"
+  },
+  "current_hold": "Whiterun",
+  "current_location": "Jorrvaskr - The Companions' Mead Hall",
+  "party_reputation": {
+    "whiterun": 0,
+    "windhelm": 0,
+    "solitude": 0,
+    "markarth": 0,
+    "riften": 0,
+    "winterhold": 0,
+    "morthal": 0,
+    "dawnstar": 0,
+    "falkreath": 0
+  },
+  "party_alignment": {
+    "stormcloak_lean": 0,
+    "imperial_lean": 0,
+    "note": "Positive numbers indicate lean toward that faction. Range: -10 to +10"
+  },
+  "party_resources": {
+    "gold": 0,
+    "supplies": "moderate",
+    "safe_houses": [],
+    "contacts": []
+  },
+  "party_secrets": {
+    "known_to_all": [],
+    "known_to_some": [],
+    "individual_secrets": []
+  },
+  "party_goals": {
+    "primary": "Survive the civil war and shape Skyrim's future",
+    "secondary": [],
+    "personal_goals": []
+  },
+  "session_notes": {
+    "last_session": null,
+    "next_session_hooks": [],
+    "unresolved_threads": []
+  }
+}

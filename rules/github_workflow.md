@@ -12,7 +12,7 @@ This repo is your campaign brain: searchable, versioned, hard to accidentally ov
 - `/state/campaign_state.json` → hold control + flags + party alignment
 - `/state/campaign_position.json` → “where we are right now” pointer for fast recall
 - `/logs/` → session logs + Save Game chronicles
-- `/hooks/` → hook bank (including secret Option 6 seeds)
+- `/hooks/` → hook bank (including secret Dragonbreak seeds)
 - `/tools/` → generated context packs / quick-reference outputs
 
 ## After a session (3 steps)
