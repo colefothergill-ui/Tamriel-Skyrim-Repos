@@ -11,33 +11,30 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Run custom scan
+      - name: JSON sanity
         run: |
-          python scripts/custom_scan.py
+          python - <<'PY'
+          import json
+          for p in ["clocks/skyrim_clocks.json", "state/campaign_state.json"]:
+              with open(p, "r", encoding="utf-8") as f:
+                  json.load(f)
+          print("✓ JSON loads cleanly")
+          PY
 
-      - name: Verify campaign state
-        run: |
-          if [ -f state/campaign_state.json ]; then
-            echo "✓ campaign_state.json exists"
-            cat state/campaign_state.json
-            # Check if campaign_state is true
-            if grep -q '"campaign_state": true' state/campaign_state.json; then
-              echo "✓ campaign_state is true"
-            else
-              echo "✗ campaign_state is not set to true"
-              exit 1
-            fi
-          else
-            echo "✗ campaign_state.json not found"
-            exit 1
-          fi
+      - name: Compile scripts
+        run: python -m py_compile scripts/*.py
+
+      - name: Validate state + clocks
+        run: python scripts/validate_state.py
+
+      - name: Scan for banned terms
+        run: python scripts/custom_scan.py
