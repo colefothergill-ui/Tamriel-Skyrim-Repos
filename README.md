@@ -89,6 +89,9 @@ See `/modules/locations/` for detailed location guides with aspects and GM hooks
 
 ### GM Automation Tools
 ```bash
+# Run full vault audit and integrity check
+bash scripts/audit_vault.sh
+
 # Create a new session log with timestamp
 python scripts/session_stamp.py
 
@@ -100,6 +103,9 @@ python scripts/custom_scan.py
 
 # Validate campaign state files
 python scripts/validate_state.py
+
+# Set up convenient bash aliases
+bash scripts/setup_aliases.sh
 ```
 
 ---
