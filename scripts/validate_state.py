@@ -1,133 +1,116 @@
 """
 validate_state.py
-Validate state/STATE.json and clocks/bfa_clocks.json for basic consistency.
+Validate state/campaign_state.json and clocks/skyrim_clocks.json for basic consistency.
 
 Usage:
   python scripts/validate_state.py
 
 Checks:
 - Files exist and are valid JSON.
-- Clock current values do not exceed max and are non-negative.
-- Expected PC fields exist (aspects, skills, fate_points, stress, consequences).
-- Fate points are non-negative.
-- Stress arrays are boolean lists.
+- Clock current values are ints, non-negative, and do not exceed max.
+- campaign_state.json has required sections and allowed values.
 """
 
+from __future__ import annotations
+
 import json
-from numbers import Number
-from pathlib import Path
 import sys
+from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-STATE_PATH = ROOT / "state" / "STATE.json"
-CLOCKS_PATH = ROOT / "clocks" / "bfa_clocks.json"
+ROOT = Path(__file__).resolve().parents[1]
+CLOCKS_PATH = ROOT / "clocks" / "skyrim_clocks.json"
+STATE_PATH = ROOT / "state" / "campaign_state.json"
 
+ALLOWED_CONTROL = {"imperial", "stormcloak", "neutral", "contested"}
+ALLOWED_ALIGNMENT = {"imperial", "stormcloak", "neutral", "undecided"}
 
-def is_clock_entry(clock):
-  """Return True when a mapping has clock fields 'current' and 'max'."""
-  return isinstance(clock, dict) and "current" in clock and "max" in clock
+def load_json(path: Path) -> dict:
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        raise ValueError(f"Missing file: {path}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in {path}: {e}")
 
+def validate_clocks(data: dict) -> list[str]:
+    errors: list[str] = []
+    for section in ("master_clocks", "act_clocks", "faction_clocks"):
+        clocks = data.get(section)
+        if not isinstance(clocks, dict):
+            errors.append(f"{section} missing or not an object")
+            continue
+        for name, clock in clocks.items():
+            if not isinstance(clock, dict):
+                errors.append(f"{section}.{name} not an object")
+                continue
+            cur = clock.get("current")
+            maxv = clock.get("max")
+            if not isinstance(cur, int) or not isinstance(maxv, int):
+                errors.append(f"{section}.{name} current/max must be ints")
+                continue
+            if cur < 0:
+                errors.append(f"{section}.{name} current < 0")
+            if maxv <= 0:
+                errors.append(f"{section}.{name} max <= 0")
+            if cur > maxv:
+                errors.append(f"{section}.{name} current ({cur}) > max ({maxv})")
+    return errors
 
-def iter_clock_entries(section, name, clock, errors):
-  """Yield (label, clock_dict) pairs for flat or nested clock structures."""
-  if not isinstance(clock, dict):
-    errors.append(f"{section}:{name} invalid clock format")
-    return []
-  if is_clock_entry(clock):
-    return [(f"{section}:{name}", clock)]
-  entries = []
-  for inner_name, inner_clock in clock.items():
-    if not isinstance(inner_clock, dict):
-      errors.append(f"{section}:{name}:{inner_name} invalid clock entry")
-      continue
-    entries.append((f"{section}:{name}:{inner_name}", inner_clock))
-  return entries
-
-
-def load_json(path: Path):
-  """Load JSON from disk or exit with an error message if invalid/missing."""
-  if not path.exists():
-    print(f"ERROR: Missing file: {path}")
-    sys.exit(1)
-  try:
-    with path.open(encoding="utf-8") as handle:
-      return json.load(handle)
-  except json.JSONDecodeError as e:
-    print(f"ERROR: Invalid JSON in {path}: {e}")
-    sys.exit(1)
-
-
-def check_clocks(data):
-  """Validate clock structures for pc_clocks and story_clocks, returning errors."""
-  errors = []
-  for section in ("pc_clocks", "story_clocks"):
-    clocks = data.get(section, {})
-    for name, clock in clocks.items():
-      for label, entry in iter_clock_entries(section, name, clock, errors):
-        cur = entry.get("current")
-        maxv = entry.get("max")
-        if cur is None or maxv is None:
-          errors.append(f"{label} missing current/max")
-          continue
-        if cur < 0:
-          errors.append(f"{label} current < 0")
-        if maxv <= 0:
-          errors.append(f"{label} max <= 0")
-        if cur > maxv:
-          errors.append(f"{label} current ({cur}) > max ({maxv})")
-  return errors
-
-
-def check_state(data):
-  """Validate state/STATE.json structure, returning a list of error strings."""
-  errors = []
-  pcs = data.get("pcs", {})
-  if not pcs:
-    errors.append("No PCs defined in state.")
-  for pc_name, pc in pcs.items():
-    if "fate_points" not in pc:
-      errors.append(f"{pc_name}: fate_points missing")
-      fate_points_val = None
+def validate_campaign_state(state: dict) -> list[str]:
+    errors: list[str] = []
+    holds = state.get("holds")
+    if not isinstance(holds, dict) or not holds:
+        errors.append("holds missing or empty")
     else:
-      fate_points_val = pc.get("fate_points")
-      if not isinstance(fate_points_val, Number):
-        errors.append(f"{pc_name}: fate_points must be a number")
-      elif fate_points_val < 0:
-        errors.append(f"{pc_name}: fate_points < 0")
-    stress = pc.get("stress", {})
-    for track in ("physical", "mental"):
-      arr = stress.get(track, [])
-      if not isinstance(arr, list) or not all(isinstance(x, bool) for x in arr):
-        errors.append(f"{pc_name}: stress.{track} must be a list of booleans")
-    consequences = pc.get("consequences", {})
-    if not isinstance(consequences, dict):
-      errors.append(f"{pc_name}: consequences must be an object")
-      continue
-    for slot in ("mild", "moderate", "severe"):
-      if slot not in consequences:
-        errors.append(f"{pc_name}: consequences.{slot} missing")
-        continue
-      val = consequences[slot]
-      if val is not None and not isinstance(val, str):
-        errors.append(f"{pc_name}: consequences.{slot} must be a string or null")
-  return errors
+        for hold_name, hold in holds.items():
+            if not isinstance(hold, dict):
+                errors.append(f"holds.{hold_name} not an object")
+                continue
+            control = hold.get("control")
+            if control not in ALLOWED_CONTROL:
+                errors.append(f"holds.{hold_name}.control must be one of {sorted(ALLOWED_CONTROL)}")
 
+    flags = state.get("major_flags")
+    if not isinstance(flags, dict):
+        errors.append("major_flags missing or not an object")
+    else:
+        for k, v in flags.items():
+            if not isinstance(v, bool):
+                errors.append(f"major_flags.{k} must be boolean")
 
-def main():
-  state = load_json(STATE_PATH)
-  clocks = load_json(CLOCKS_PATH)
+    party = state.get("party")
+    if not isinstance(party, dict):
+        errors.append("party missing or not an object")
+    else:
+        alignment = party.get("alignment")
+        if alignment not in ALLOWED_ALIGNMENT:
+            errors.append(f"party.alignment must be one of {sorted(ALLOWED_ALIGNMENT)}")
+        for list_key in ("allies", "enemies"):
+            v = party.get(list_key)
+            if not isinstance(v, list):
+                errors.append(f"party.{list_key} must be a list")
+    return errors
 
-  errors = []
-  errors += check_clocks(clocks)
-  errors += check_state(state)
+def main() -> None:
+    try:
+        clocks = load_json(CLOCKS_PATH)
+        state = load_json(STATE_PATH)
+    except ValueError as e:
+        print(f"VALIDATION FAILED: {e}")
+        sys.exit(1)
 
-  if errors:
-    print("VALIDATION FAILED:")
-    for e in errors:
-      print(f"- {e}")
-    sys.exit(1)
-  print("OK: state and clocks look consistent.")
+    errors: list[str] = []
+    errors += validate_clocks(clocks)
+    errors += validate_campaign_state(state)
 
+    if errors:
+        print("VALIDATION FAILED:")
+        for e in errors:
+            print(f"- {e}")
+        sys.exit(1)
+
+    print("OK: state and clocks look consistent.")
 
 if __name__ == "__main__":
-  main()
+    main()
