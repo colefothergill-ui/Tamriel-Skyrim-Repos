@@ -1,3 +1,4 @@
+---
 name: Validate Vault
 
 on:
@@ -5,25 +6,25 @@ on:
     branches: ["*"]
   pull_request:
     branches: ["*"]
-  workflow_dispatch:
+  workflow_dispatch: true
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Run custom scan
         run: |
           python scripts/custom_scan.py
-      
+
       - name: Verify campaign state
         run: |
           if [ -f state/campaign_state.json ]; then
