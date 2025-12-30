@@ -1,1 +1,22 @@
-{"campaign_state": {}}
+{
+  "holds": {
+    "Haafingar": { "control": "imperial" },
+    "Eastmarch": { "control": "stormcloak" },
+    "Whiterun": { "control": "neutral" },
+    "The Reach": { "control": "neutral" },
+    "The Rift": { "control": "neutral" },
+    "Hjaalmarch": { "control": "neutral" },
+    "Falkreath": { "control": "neutral" },
+    "Winterhold": { "control": "neutral" },
+    "The Pale": { "control": "neutral" }
+  },
+  "major_flags": {
+    "whiterun_decided": false,
+    "proof_of_thalmor_manipulation_found": false
+  },
+  "party": {
+    "alignment": "undecided",
+    "allies": [],
+    "enemies": []
+  }
+}
