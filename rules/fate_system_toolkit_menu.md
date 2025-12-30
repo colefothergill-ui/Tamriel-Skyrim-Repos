@@ -5,7 +5,7 @@
 ## Why this file exists
 The Toolkit is a buffet. This page lists which optional subsystems we’re using (and where to look for them).
 
-## Allowed optional modules (recommended for WoW BFA tone)
+## Allowed optional modules (recommended for this campaign)
 ### Conditions (instead of / alongside stress)
 Use named condition tracks like:
 - **Wounded**, **Shaken**, **Exhausted**, **Corrupted**, etc.
