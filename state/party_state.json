@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "Party state tracking for current companions and cohesion",
-    "updated": "2025-12-30",
+    "updated": "2025-12-31",
     "notes": "Track active companions, party cohesion clock, and morale"
   },
   "active_companions": [],
@@ -19,7 +19,7 @@
     "note": "Affects willingness to take risks and face challenges"
   },
   "current_hold": "Whiterun",
-  "current_location": "Jorrvaskr - The Companions' Mead Hall",
+  "current_location": "Riverwood — The Sleeping Giant Inn",
   "party_reputation": {
     "whiterun": 0,
     "windhelm": 0,
@@ -32,7 +32,7 @@
     "falkreath": 0
   },
   "party_alignment": {
-    "stormcloak_lean": 0,
+    "stormcloak_lean": 3,
     "imperial_lean": 0,
     "note": "Positive numbers indicate lean toward that faction. Range: -10 to +10"
   },
@@ -40,7 +40,12 @@
     "gold": 0,
     "supplies": "moderate",
     "safe_houses": [],
-    "contacts": []
+    "contacts": [
+      "Brynjar (Riverwood)",
+      "Galmar Stone-Fist",
+      "Ralof",
+      "Ulfric Stormcloak"
+    ]
   },
   "party_secrets": {
     "known_to_all": [],
@@ -50,11 +55,26 @@
   "party_goals": {
     "primary": "Survive the civil war and shape Skyrim's future",
     "secondary": [],
-    "personal_goals": []
+    "personal_goals": [
+      "Become Hircine's Champion",
+      "Liberate Falkreath Hold",
+      "Become Jarl of Falkreath"
+    ]
   },
   "session_notes": {
-    "last_session": null,
-    "next_session_hooks": [],
-    "unresolved_threads": []
+    "last_session": "2025-12-31",
+    "next_session_hooks": [
+      "Riverwood resupply + intel: confirm who in town is 'blue' and who smells like silver",
+      "Plan hit on Silver Hand cell near Pinewatch (cellar hatch access; tripline/noise alarm; silver net)",
+      "Investigate Falkreath patronage: stag wax seal fragment suggests Falkreath coin or forgery",
+      "Watch for Silver Hand retaliation; wounded leader Harrik may set traps",
+      "Recover Voice: clear Strain with centering/rest before major raid"
+    ],
+    "unresolved_threads": [
+      "Unleashed Pup: infected Silver Hand survivor released into the wild",
+      "Brynjar's testimony: what he saw/heard from the hunters",
+      "Wax seal fragment (stag): identify the exact seal owner or forger",
+      "Pinewatch cell roster: Harrik, Vordr, Eydis, Svennar"
+    ]
   }
 }

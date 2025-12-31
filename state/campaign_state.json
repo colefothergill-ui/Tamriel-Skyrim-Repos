@@ -1,5 +1,5 @@
 {
-  "current_location": "Jorrvaskr - The Companions' Mead Hall",
+  "current_location": "Riverwood — The Sleeping Giant Inn",
   "holds": {
     "Haafingar": { "control": "imperial" },
     "Eastmarch": { "control": "stormcloak" },
@@ -13,11 +13,22 @@
   },
   "major_flags": {
     "whiterun_decided": false,
-    "proof_of_thalmor_manipulation_found": false
+    "proof_of_thalmor_manipulation_found": false,
+    "pinewatch_cell_identified": true,
+    "stag_seal_fragment_acquired": true,
+    "brynjar_freed_in_riverwood": true
   },
   "party": {
-    "alignment": "undecided",
-    "allies": [],
-    "enemies": []
+    "alignment": "stormcloak",
+    "allies": [
+      "Brynjar (Stormcloak prisoner freed at Riverwood road)",
+      "Ulfric Stormcloak (friend/commander)",
+      "Galmar Stone-Fist (friend/commander)",
+      "Ralof (friend; Helgen survivor)"
+    ],
+    "enemies": [
+      "Silver Hand (Pinewatch cell)",
+      "Harrik 'Chain-Bite' (wounded Silver Hand leader)"
+    ]
   }
 }
