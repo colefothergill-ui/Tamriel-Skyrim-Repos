@@ -35,7 +35,7 @@ def load_json(path: Path) -> dict:
 
 def validate_clocks(data: dict) -> list[str]:
     errors: list[str] = []
-    for section in ("master_clocks", "act_clocks", "faction_clocks"):
+    for section in ("master_clocks", "act_clocks", "faction_clocks", "personal_clocks"):
         clocks = data.get(section)
         if not isinstance(clocks, dict):
             errors.append(f"{section} missing or not an object")
