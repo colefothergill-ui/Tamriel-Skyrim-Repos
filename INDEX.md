@@ -58,6 +58,7 @@ A structured outline of all campaign elements for quick navigation.
 
 ### PCs
 - **/pcs/** — Player character sheets
+  - `OSKERN_GALEBORNE.md` — Oskern Galeborne (Ice Wolf of Falkreath)
   - `CHAR_TEMPLATE.md` — Template for new PCs
 
 ### Session Logs
