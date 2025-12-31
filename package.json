@@ -1,8 +1,7 @@
 {
   "name": "tamriel-skyrim-repos",
   "version": "1.0.0",
-  "description": "Welcome to the **Skyrim Fate Core Campaign Vault** — a comprehensive repository for running a gritty, branching Fate Core campaign set in **4E 201 Skyrim**.",
-  "main": "index.js",
+  "description": "Skyrim Fate Core Campaign Vault for running a gritty, branching Fate Core campaign set in 4E 201 Skyrim.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
