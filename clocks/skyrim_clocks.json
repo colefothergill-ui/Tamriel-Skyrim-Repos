@@ -1,8 +1,8 @@
 {
   "meta": {
     "era": "4E 201",
-    "updated": "2025-12-29",
-    "notes": "Single source of truth for campaign clocks."
+    "updated": "2025-12-31",
+    "notes": "Single source of truth for campaign clocks. Added Oskern personal/threat/goal clocks."
   },
   "master_clocks": {
     "civil_war_endgame": {
@@ -74,10 +74,52 @@
       "max": 6,
       "note": "Side Plot C — covert operations escalating into Act V."
     },
+    "stormcloak_trust": {
+      "current": 1,
+      "max": 4,
+      "note": "Oskern standing with the Sons of Skyrim. Ticks on missions/sacrifices for the cause. MAX = promotion + war council access + call-in aid 1/session."
+    },
+    "silver_hand_retaliation": {
+      "current": 1,
+      "max": 6,
+      "note": "Threat clock for Silver Hand counter-hunts. Ticks as they learn, mobilize, and set traps. MAX = major strike/ambush/raid/exposure attempt."
+    },
     "way_of_the_voice_offshoot": {
+      "current": 1,
+      "max": 4,
+      "note": "Custom faction — Greybeards-adjacent splinter. Ticks on voice-lore, restraint, mentorship. MAX = unlock mentor/word/technique upgrade."
+    }
+  },
+  "personal_clocks": {
+    "hircines_call_oskern": {
+      "current": 2,
+      "max": 6,
+      "note": "How deeply Oskern is claimed by the Hunt. Ticks on rites, trophies, compels accepted. MAX = Hircine escalation/trial + major upgrade."
+    },
+    "beast_mastery_oskern": {
       "current": 0,
       "max": 4,
-      "note": "Custom faction — Greybeards-adjacent splinter."
+      "note": "Control during/after transformation. Ticks on resisting frenzy and maintaining intent. MAX = first-shift control becomes reliable."
+    },
+    "unleashed_pup": {
+      "current": 1,
+      "max": 4,
+      "note": "The infected Silver Hand survivor ripple. Ticks as they survive/change/spread. MAX = named NPC + big complication."
+    },
+    "path_to_hircines_champion": {
+      "current": 0,
+      "max": 6,
+      "note": "Long-arc ambition: become Hircine’s Champion. MAX = mantle offered (with price)."
+    },
+    "liberate_falkreath_hold": {
+      "current": 0,
+      "max": 6,
+      "note": "Long-arc ambition: free Falkreath from corruption/Imperial leverage. MAX = hold flips / Siddgeir falls."
+    },
+    "claim_the_jarlship_falkreath": {
+      "current": 0,
+      "max": 6,
+      "note": "Long-arc ambition: take the Jarlship. MAX = you can credibly seize rule and endure fallout."
     }
   }
 }
