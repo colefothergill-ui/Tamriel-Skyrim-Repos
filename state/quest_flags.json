@@ -1,16 +1,16 @@
 {
   "meta": {
     "description": "Quest state flags for tracking campaign progression",
-    "updated": "2025-12-30",
+    "updated": "2025-12-31",
     "notes": "Use boolean for binary states, integers for counters"
   },
   "main_quest_flags": {
-    "helgen_escaped": false,
+    "helgen_escaped": true,
     "bleak_falls_retrieved": false,
     "dragonstone_delivered": false,
     "whiterun_battle_complete": false,
-    "civil_war_joined": false,
-    "civil_war_side": null,
+    "civil_war_joined": true,
+    "civil_war_side": "stormcloak",
     "thalmor_evidence_found": false,
     "thalmor_evidence_revealed": false,
     "peace_council_attempted": false,
@@ -93,7 +93,7 @@
     }
   },
   "location_flags": {
-    "holds_visited": [],
+    "holds_visited": ["Whiterun"],
     "major_cities_visited": [],
     "dragon_walls_discovered": 0,
     "dragon_priests_defeated": 0,
