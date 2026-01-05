@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "description": "PC creation gate. If created=false, the GM MUST run Session Zero before play proceeds.",
+    "updated": "2026-01-05"
+  },
+  "created": false,
+  "active_pc_file": "pcs/PC_MAIN.md",
+  "required_fields": [
+    "name",
+    "high_concept",
+    "trouble",
+    "affiliation_primary",
+    "starting_role",
+    "skills_or_approaches",
+    "stunt_1"
+  ],
+  "pc": {
+    "name": "",
+    "high_concept": "",
+    "trouble": "",
+    "other_aspects": [
+      "",
+      "",
+      ""
+    ],
+    "affiliation_primary": "",
+    "affiliation_secondary": "",
+    "starting_role": "",
+    "skills_or_approaches": [],
+    "stunts": [
+      "",
+      "",
+      ""
+    ],
+    "extras": [],
+    "notes": ""
+  }
+}

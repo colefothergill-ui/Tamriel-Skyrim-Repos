@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "description": "Pointer to the active PC sheet used by protocols/scripts.",
+    "updated": "2026-01-05"
+  },
+  "active_pc_file": "pcs/PC_MAIN.md",
+  "archived_pc_files": [
+    "pcs/OSKERN_GALEBORNE.md"
+  ]
+}
