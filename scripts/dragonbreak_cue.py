@@ -7,147 +7,116 @@ Usage:
 
 Behavior:
 - Checks campaign state and clocks for Dragonbreak eligibility
+- ALSO checks module-scene keyed dragonbreak moments (if story_branches/DRAGONBREAK_MOMENTS.json exists)
 - Suggests Dragonbreak moments when conditions are met
 - Does not modify any repository files (read-only)
 """
 
-import sys
 import json
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Dict, Any, List, Optional
 
-ROOT = Path(__file__).resolve().parent.parent
-CLOCKS_FILE = ROOT / "clocks" / "skyrim_clocks.json"
+ROOT = Path(__file__).resolve().parents[1]
 STATE_FILE = ROOT / "state" / "campaign_state.json"
+POS_FILE = ROOT / "state" / "campaign_position.json"
+CLOCKS_FILE = ROOT / "clocks" / "skyrim_clocks.json"
+MOMENTS_FILE = ROOT / "story_branches" / "DRAGONBREAK_MOMENTS.json"
 
-# Dragonbreak scene prefix flavor text
-DRAGONBREAK_SCENE_PREFIX = """
-╔═══════════════════════════════════════════════════════════════════╗
-║                    🌀 DRAGONBREAK MOMENT 🌀                        ║
-╚═══════════════════════════════════════════════════════════════════╝
+DRAGONBREAK_SCENE_PREFIX = """\n⚠️  DRAGONBREAK CUE DETECTED\nOffer a Secret Turn / Elder Scrolls Moment at the next decision point.\n"""
 
-Your vision blurs. For a heartbeat, you're both here and... not.
-The wind whispers a name you've never heard—but mourn.
+def load_json(path: Path) -> Optional[dict]:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
 
-Time fractures. The world remembers what hasn't happened yet.
-
-[This is a rare mythic thread opportunity. The choice is risky and tempting.]
-"""
-
-
-def load_json_file(file_path: Path) -> Dict[str, Any]:
-    """Load and parse a JSON file."""
-    try:
-        with file_path.open("r", encoding="utf-8") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Error loading {file_path}: {e}")
-        sys.exit(1)
-
-
-def check_clock_thresholds(clocks_data: Dict[str, Any]) -> List[str]:
-    """Check if any clocks meet Dragonbreak threshold conditions."""
+def check_clocks(clocks_data: Dict[str, Any]) -> List[str]:
     triggers = []
 
-    # Check master clocks
     master = clocks_data.get("master_clocks", {})
     for clock_name, clock_data in master.items():
         current = clock_data.get("current", 0)
         max_val = clock_data.get("max", 1)
-        threshold = max_val * 0.5  # 50% or more
-
+        threshold = max_val * 0.75  # 75% or more
         if current >= threshold:
-            triggers.append(f"Master clock '{clock_name}' at {current}/{max_val} (≥50%)")
+            triggers.append(f"Master clock '{clock_name}' at {current}/{max_val} (≥75%)")
 
-    # Check act clocks
     act = clocks_data.get("act_clocks", {})
     for clock_name, clock_data in act.items():
         current = clock_data.get("current", 0)
         max_val = clock_data.get("max", 1)
         threshold = max_val * 0.5  # 50% or more
-
         if current >= threshold:
             triggers.append(f"Act clock '{clock_name}' at {current}/{max_val} (≥50%)")
 
-    # Check faction clocks
     faction = clocks_data.get("faction_clocks", {})
     for clock_name, clock_data in faction.items():
         current = clock_data.get("current", 0)
         max_val = clock_data.get("max", 1)
-
-        # Check if 1 tick from milestone
         if current >= max_val - 1:
             triggers.append(f"Faction clock '{clock_name}' at {current}/{max_val} (1 tick from complete)")
 
     return triggers
 
-
 def check_location(state_data: Dict[str, Any]) -> List[str]:
-    """Check if current location is mythic/ancient."""
     triggers = []
-
-    # Mythic location keywords
+    loc = str(state_data.get("current_location", "")).lower()
     mythic_keywords = [
         "ruin", "ruins", "barrow", "dwemer", "dwarven", "shrine",
         "ancient", "forgotten", "hidden", "cursed", "forbidden",
         "temple", "sanctuary", "crypt", "tomb"
     ]
-
-    current_location = state_data.get("current_location", "").lower()
-
-    for keyword in mythic_keywords:
-        if keyword in current_location:
-            triggers.append(f"Current location '{current_location}' is mythic/ancient (keyword: {keyword})")
-            break
-
+    if any(k in loc for k in mythic_keywords):
+        triggers.append(f"Mythic location cue: '{state_data.get('current_location','')}'")
     return triggers
 
+def check_module_moments(pos: Dict[str, Any], moments: Dict[str, Any]) -> List[str]:
+    out: List[str] = []
+    if not moments:
+        return out
+
+    act = pos.get("current_act")
+    scene = pos.get("current_scene_id", "")
+    for m in moments.get("moments", []):
+        if m.get("act") != act:
+            continue
+        scene_ids = m.get("scene_ids", [])
+        if scene_ids and scene in scene_ids:
+            out.append(f"Module Dragonbreak: {m.get('id')} — {m.get('title')}")
+    return out
 
 def main() -> None:
+    state = load_json(STATE_FILE) or {}
+    pos = load_json(POS_FILE) or {}
+    clocks = load_json(CLOCKS_FILE) or {}
+    moments = load_json(MOMENTS_FILE) or {}
+
+    triggers: List[str] = []
+    triggers += check_clocks(clocks)
+    triggers += check_location(state)
+    triggers += check_module_moments(pos, moments)
+
     print("=" * 70)
-    print("Dragonbreak Cue Detector")
-    print("=" * 70)
-    print()
-
-    # Load data files
-    clocks_data = load_json_file(CLOCKS_FILE)
-    state_data = load_json_file(STATE_FILE)
-
-    # Check for Dragonbreak conditions
-    all_triggers = []
-
-    print("Checking clock thresholds...")
-    clock_triggers = check_clock_thresholds(clocks_data)
-    all_triggers.extend(clock_triggers)
-
-    print("Checking location context...")
-    location_triggers = check_location(state_data)
-    all_triggers.extend(location_triggers)
-
-    print()
+    print("Dragonbreak Cue Check")
     print("=" * 70)
 
-    if all_triggers:
-        print("🌀 DRAGONBREAK MOMENT ELIGIBLE 🌀")
-        print()
-        print("Conditions met:")
-        for trigger in all_triggers:
-            print(f"  • {trigger}")
-        print()
-        print("Recommendation: Offer a Dragonbreak moment at the next decision point.")
-        print()
-        print("Scene prefix to use:")
+    if triggers:
         print(DRAGONBREAK_SCENE_PREFIX)
+        print("Triggers:")
+        for t in triggers:
+            print(f"- {t}")
+        if moments:
+            print("\nSee: story_branches/DRAGONBREAK_MOMENTS.json")
+            print("See: story_branches/SECRET_TURNS.md")
     else:
         print("No Dragonbreak conditions met at this time.")
         print()
         print("Dragonbreak moments should only appear when:")
-        print("  • A major/act clock is at 50% or more")
-        print("  • A faction clock is 1 tick from complete")
+        print("  • A major/act clock is high")
+        print("  • A faction clock is near completion")
         print("  • The location is ancient/mythic/hidden")
+        print("  • OR the module-scene calls for a Dragonbreak moment")
 
     print("=" * 70)
-
 
 if __name__ == "__main__":
     main()
