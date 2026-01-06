@@ -1,12 +1,12 @@
 {
-  "current_location": "Whiterun — Battle of Whiterun (Staging)",
+  "current_location": "Whiterun — Gatehouse (Inner)",
   "startup": {
     "start_point": "ACT_01_BATTLE_OF_WHITERUN",
     "session_zero_mode": true,
     "notes": "Begin at the module opening. Run Session Zero PC creation at the siege start before play proceeds."
   },
   "party": {
-    "alignment": "stormcloaks",
+    "alignment": "stormcloak",
     "allies": [
       "Ulfric Stormcloak",
       "Galmar Stone-Fist",
@@ -28,5 +28,10 @@
     "battle_of_whiterun_started": true,
     "whiterun_avoided_massacre": true,
     "gatehouse_duel_resolved": true
+  },
+  "holds": {
+    "Whiterun": {
+      "control": "contested"
+    }
   }
 }
