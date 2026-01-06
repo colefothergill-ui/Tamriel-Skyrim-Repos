@@ -58,6 +58,10 @@ def should_scan_file(file_path: Path) -> bool:
     if file_path.name == "copilot-instructions.md":
         return False
 
+    # Skip the repository fixes summary as it documents what was removed
+    if file_path.name == "REPOSITORY_FIXES_SUMMARY.md":
+        return False
+
     # Skip this script itself
     if file_path.name == "custom_scan.py":
         return False
