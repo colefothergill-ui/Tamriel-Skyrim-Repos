@@ -1,5 +1,5 @@
 {
-  "current_location": "Whiterun — Gatehouse (Inner)",
+  "current_location": "Whiterun — The Bannered Mare",
   "startup": {
     "start_point": "ACT_01_BATTLE_OF_WHITERUN",
     "session_zero_mode": true,
@@ -14,17 +14,17 @@
       "Irileth",
       "Farkas",
       "Aela the Huntress",
-      "Balgruuf the Greater (conditional)"
+      "Balgruuf the Greater (conditional)",
+      "Balgruuf the Greater"
     ],
     "enemies": [
-      "Thalmor cell neutralized (pivot captured alive)",
-      "Legate Cipius (detained)",
-      "Imperial sympathizer network (pending arrests)"
+      "Imperial sympathizer network (pending arrests)",
+      "Thalmor handlers (other cells)"
     ]
   },
   "major_flags": {
-    "whiterun_decided": true,
-    "proof_of_thalmor_manipulation_found": true,
+    "whiterun_decided": false,
+    "proof_of_thalmor_manipulation_found": false,
     "battle_of_whiterun_started": true,
     "whiterun_avoided_massacre": true,
     "gatehouse_duel_resolved": true
@@ -33,5 +33,13 @@
     "Whiterun": {
       "control": "stormcloak"
     }
-  }
+  },
+  "flags": {
+    "whiterun_decided": true,
+    "proof_of_thalmor_manipulation_found": true,
+    "battle_of_whiterun_started": true,
+    "whiterun_avoided_massacre": true,
+    "gatehouse_duel_resolved": true
+  },
+  "current_scene_id": "S4_BANNERED_MARE_STAGS_TURNING"
 }

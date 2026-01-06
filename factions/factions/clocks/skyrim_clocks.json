@@ -124,19 +124,19 @@
   },
   "clocks": {
     "civil_war_whiterun_flip": {
-      "current": 7,
+      "current": 8,
       "max": 8,
-      "note": "Balgruuf aligned conditionally; gatehouse secured; final sweep pending. Ulfric acknowledged Eltric as Champion; purge held to detentions."
+      "note": "RESOLVED: Whiterun Accord signed; Balgruuf chooses Skyrim; garrison terms set; no massacre."
     },
     "thalmor_whiterun_sabotage": {
       "current": 8,
       "max": 8,
-      "note": "Sun-Wax eliminated; stablefire prevented; network exposed but not fully cleared. Satchel opened; ring/token recovered; pivot tailed—capture imminent. Pivot captured alive; public proof presented; Whiterun Thalmor cell neutralized."
+      "note": "RESOLVED: pivot captured alive; satchel opened; evidence publicly presented; Whiterun cell neutralized."
     },
     "companions_respect": {
-      "current": 3,
+      "current": 4,
       "max": 4,
-      "note": "Aela/Farkas aided in defense of Whiterun; Eltric issued commands under pressure. Evidence secured; hunt pivot underway."
+      "note": "RESOLVED: fought clean, led under pressure, hunted pivot, protected civilians; Companions bond strengthened."
     }
   }
 }
