@@ -8,6 +8,7 @@
     "helgen_escaped": true,
     "bleak_falls_retrieved": false,
     "dragonstone_delivered": false,
+    "whiterun_battle_started": true,
     "whiterun_battle_complete": false,
     "civil_war_joined": true,
     "civil_war_side": "stormcloak",
