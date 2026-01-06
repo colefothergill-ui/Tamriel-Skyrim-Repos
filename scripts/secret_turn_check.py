@@ -15,8 +15,18 @@ CLOCKS = ROOT / "clocks" / "skyrim_clocks.json"
 POS = ROOT / "state" / "campaign_position.json"
 
 def load_json(p: Path) -> dict:
-    with p.open("r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with p.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Warning: File not found: {p}")
+        return {}
+    except json.JSONDecodeError as e:
+        print(f"Warning: Invalid JSON in {p}: {e}")
+        return {}
+    except Exception as e:
+        print(f"Warning: Error reading {p}: {e}")
+        return {}
 
 def any_act_halfway(clocks: dict) -> bool:
     for c in clocks.get("act_clocks", {}).values():

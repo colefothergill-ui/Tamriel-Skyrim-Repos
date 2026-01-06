@@ -27,7 +27,14 @@ DRAGONBREAK_SCENE_PREFIX = """\n⚠️  DRAGONBREAK CUE DETECTED\nOffer a Secret
 def load_json(path: Path) -> Optional[dict]:
     if not path.exists():
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        print(f"Warning: Failed to parse {path}: {e}")
+        return None
+    except Exception as e:
+        print(f"Warning: Error reading {path}: {e}")
+        return None
 
 def check_clocks(clocks_data: Dict[str, Any]) -> List[str]:
     triggers = []

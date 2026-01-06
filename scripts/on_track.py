@@ -21,7 +21,16 @@ CLOCKS = ROOT / "clocks" / "skyrim_clocks.json"
 DEFAULTS = STATE / "startup_defaults.json"
 
 def load_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+    except json.JSONDecodeError as e:
+        print(f"Warning: Invalid JSON in {path}: {e}")
+        return {}
+    except Exception as e:
+        print(f"Warning: Error reading {path}: {e}")
+        return {}
 
 def main() -> None:
     issues: list[str] = []
