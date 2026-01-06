@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "description": "PC creation gate. If created=false, the GM MUST run Session Zero before play proceeds.",
+    "updated": "2026-01-05"
+  },
+  "created": true,
+  "active_pc_file": "pcs/PC_MAIN.md",
+  "required_fields": [
+    "name",
+    "high_concept",
+    "trouble",
+    "affiliation_primary",
+    "starting_role",
+    "skills_or_approaches",
+    "stunt_1"
+  ],
+  "pc": {
+    "name": "Eltric Stagborne",
+    "high_concept": "Last of the Noble Stagborne Clan — Champion of the Thu'um",
+    "trouble": "The Way of the Voice",
+    "other_aspects": [
+      "Wielder of Elder Elk's Axe",
+      "The Stag of the Stormcloaks",
+      "Sworn to Kyne, Bound to Falkreath"
+    ],
+    "affiliation_primary": "stormcloaks",
+    "affiliation_secondary": "way_of_the_voice",
+    "starting_role": "Riding in to meet Ulfric, Galmar, and Ralof at the Whiterun staging line; front-line champion and disciplined Thu'um support.",
+    "skills_or_approaches": [
+      "Fight +4",
+      "Will +3",
+      "Physique +3",
+      "Resources +2",
+      "Contacts +2",
+      "Rapport +2",
+      "Athletics +1",
+      "Lore +1",
+      "Skulk +1",
+      "Drive/Ride +1"
+    ],
+    "stunts": [
+      "Thu'um Prodigy: +2 when using Will for Shouts (4dF).",
+      "Nobleman's Diplomacy: +2 Rapport with Jarls/Housecarls/Stewards/aristocratic Nords in formal contexts.",
+      "Stag-Rush CHARGE: Once per scene move two zones; gain +2 Fight or +2 Physique (declare before moving)."
+    ],
+    "extras": [
+      "The Thu'um: Unrelenting Force, Kyne's Peace, Disarm",
+      "Elder Elk's Axe (Signature Weapon)"
+    ],
+    "notes": "Faction: Stormcloak (Champion of the War). Background: former monk of High Hrothgar; vows strained by Falkreath's blood debt."
+  }
+}
