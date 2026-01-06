@@ -129,9 +129,9 @@
       "note": "Balgruuf aligned conditionally; gatehouse secured; final sweep pending. Ulfric acknowledged Eltric as Champion; purge held to detentions."
     },
     "thalmor_whiterun_sabotage": {
-      "current": 8,
+      "current": 7,
       "max": 8,
-      "note": "Sun-Wax eliminated; stablefire prevented; network exposed but not fully cleared. Satchel opened; ring/token recovered; pivot tailed—capture imminent. Pivot captured alive; public proof presented; Whiterun Thalmor cell neutralized."
+      "note": "Sun-Wax eliminated; stablefire prevented; network exposed but not fully cleared. Satchel opened; ring/token recovered; pivot tailed—capture imminent."
     },
     "companions_respect": {
       "current": 3,

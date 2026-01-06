@@ -17,21 +17,21 @@
       "Balgruuf the Greater (conditional)"
     ],
     "enemies": [
-      "Thalmor cell neutralized (pivot captured alive)",
+      "Thalmor handlers (gold-wax cell)",
       "Legate Cipius (detained)",
       "Imperial sympathizer network (pending arrests)"
     ]
   },
   "major_flags": {
-    "whiterun_decided": true,
-    "proof_of_thalmor_manipulation_found": true,
+    "whiterun_decided": false,
+    "proof_of_thalmor_manipulation_found": false,
     "battle_of_whiterun_started": true,
     "whiterun_avoided_massacre": true,
     "gatehouse_duel_resolved": true
   },
   "holds": {
     "Whiterun": {
-      "control": "stormcloak"
+      "control": "contested"
     }
   }
 }
