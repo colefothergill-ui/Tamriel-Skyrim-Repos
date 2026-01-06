@@ -12,6 +12,7 @@
     "The Pale": { "control": "neutral" }
   },
   "major_flags": {
+    "battle_of_whiterun_started": true,
     "whiterun_decided": false,
     "proof_of_thalmor_manipulation_found": false,
     "pinewatch_cell_identified": true,
@@ -19,12 +20,11 @@
     "brynjar_freed_in_riverwood": true
   },
   "party": {
-    "alignment": "stormcloak",
+    "alignment": "stormcloaks",
     "allies": [
-      "Brynjar (Stormcloak prisoner freed at Riverwood road)",
-      "Ulfric Stormcloak (friend/commander)",
-      "Galmar Stone-Fist (friend/commander)",
-      "Ralof (friend; Helgen survivor)"
+      "Ulfric Stormcloak",
+      "Galmar Stone-Fist",
+      "Ralof"
     ],
     "enemies": [
       "Silver Hand (Pinewatch cell)",

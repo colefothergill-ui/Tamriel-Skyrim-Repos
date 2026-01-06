@@ -1,7 +1,8 @@
 {
   "current_act": 1,
   "current_hold": "Whiterun",
-  "current_location": "",
+  "current_location": "Whiterun — Battle of Whiterun (Staging)",
+  "current_scene_id": "S1_SIEGE_OPENING",
   "focus_factions": [],
   "last_log": ""
 }
