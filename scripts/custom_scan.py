@@ -62,6 +62,10 @@ def should_scan_file(file_path: Path) -> bool:
     if file_path.name == "REPOSITORY_FIXES_SUMMARY.md":
         return False
 
+    # Skip the quick start guide as it references what was fixed
+    if file_path.name == "QUICK_START_AFTER_FIXES.md":
+        return False
+
     # Skip this script itself
     if file_path.name == "custom_scan.py":
         return False
