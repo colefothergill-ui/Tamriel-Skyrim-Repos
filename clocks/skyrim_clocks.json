@@ -16,16 +16,16 @@
       "note": "Ticks on atrocities, sabotage, and Dominion manipulation."
     }
   },
-    "act_clocks": {
-      "act_01_whiterun_outcome": {
-        "current": 6,
-        "max": 6,
-        "note": "RESOLVED: Whiterun flipped clean; Thalmor sabotage exposed; Companions respect secured."
-      },
-      "act_02_fronts_shift": {
-        "current": 0,
-        "max": 6,
-        "note": "Tracks escalation across holds."
+  "act_clocks": {
+    "act_01_whiterun_outcome": {
+      "current": 6,
+      "max": 6,
+      "note": "RESOLVED: Whiterun flipped clean; Thalmor sabotage exposed; Companions respect secured."
+    },
+    "act_02_fronts_shift": {
+      "current": 0,
+      "max": 6,
+      "note": "Tracks escalation across holds."
     },
     "act_03_city_crisis_wave": {
       "current": 0,
