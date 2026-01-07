@@ -18,9 +18,9 @@
   },
   "act_clocks": {
     "act_01_whiterun_outcome": {
-      "current": 5,
+      "current": 6,
       "max": 6,
-      "note": "Tracks Whiterun turning points."
+      "note": "RESOLVED: Whiterun turned without massacre; Thalmor sabotage exposed; Companions respect secured."
     },
     "act_02_fronts_shift": {
       "current": 0,
@@ -112,12 +112,12 @@
       "note": "Long-arc: become Hircine’s Champion. MAX = mantle offered (with price)."
     },
     "liberate_falkreath_hold": {
-      "current": 2,
+      "current": 3,
       "max": 6,
       "note": "Long-arc: free Falkreath from corruption/Imperial leverage. MAX = hold flips / Siddgeir falls."
     },
     "claim_the_jarlship_falkreath": {
-      "current": 0,
+      "current": 2,
       "max": 6,
       "note": "Long-arc ambition: take the Jarlship. MAX = you can credibly seize rule and endure fallout."
     }
@@ -137,6 +137,31 @@
       "current": 4,
       "max": 4,
       "note": "RESOLVED: fought clean, led under pressure, hunted pivot, protected civilians; Companions bond strengthened."
+    },
+    "falkreath_wax_summons": {
+      "current": 4,
+      "max": 4,
+      "note": "COMPLETE: Forged Stag seal incident erupts in the Jarl's hall; Thalmor exposed; fallout is public."
+    },
+    "falkreath_deposition": {
+      "current": 2,
+      "max": 4,
+      "note": "Hall momentum toward removing Siddgeir. Advance via proof, guard compliance, and public legitimacy."
+    },
+    "evidence_chain_secured": {
+      "current": 2,
+      "max": 3,
+      "note": "Evidence becomes unstoppable once copies are sealed, witnessed, and delivered to allies."
+    },
+    "dead_mans_drink_cellar_raid": {
+      "current": 0,
+      "max": 4,
+      "note": "Raid the hidden root-cellar drop beneath Dead Man's Drink; seize documents; catch/flip Nenya; snap the local network."
+    },
+    "dragonbreak_reality_frayed": {
+      "current": 4,
+      "max": 4,
+      "note": "THRESHOLD: Dragonbreak recoil is at max; a compel/payment event must hit within the next beat."
     }
   }
 }
