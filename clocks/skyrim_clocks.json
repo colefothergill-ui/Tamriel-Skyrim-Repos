@@ -20,7 +20,7 @@
     "act_01_whiterun_outcome": {
       "current": 6,
       "max": 6,
-      "note": "RESOLVED: Whiterun turned without massacre; Thalmor sabotage exposed; Companions respect secured."
+      "note": "RESOLVED: Whiterun flipped clean; Thalmor sabotage exposed; Companions respect secured."
     },
     "act_02_fronts_shift": {
       "current": 0,
@@ -70,7 +70,7 @@
       "note": "Side Plot C — Reach destabilization."
     },
     "thalmor_shadow_war": {
-      "current": 2,
+      "current": 3,
       "max": 6,
       "note": "Side Plot C — covert operations escalating into Act V."
     },
@@ -112,12 +112,12 @@
       "note": "Long-arc: become Hircine’s Champion. MAX = mantle offered (with price)."
     },
     "liberate_falkreath_hold": {
-      "current": 3,
+      "current": 4,
       "max": 6,
       "note": "Long-arc: free Falkreath from corruption/Imperial leverage. MAX = hold flips / Siddgeir falls."
     },
     "claim_the_jarlship_falkreath": {
-      "current": 2,
+      "current": 3,
       "max": 6,
       "note": "Long-arc ambition: take the Jarlship. MAX = you can credibly seize rule and endure fallout."
     }
@@ -144,24 +144,36 @@
       "note": "COMPLETE: Forged Stag seal incident erupts in the Jarl's hall; Thalmor exposed; fallout is public."
     },
     "falkreath_deposition": {
-      "current": 2,
-      "max": 4,
-      "note": "Hall momentum toward removing Siddgeir. Advance via proof, guard compliance, and public legitimacy."
-    },
-    "evidence_chain_secured": {
-      "current": 2,
-      "max": 3,
-      "note": "Evidence becomes unstoppable once copies are sealed, witnessed, and delivered to allies."
-    },
-    "dead_mans_drink_cellar_raid": {
-      "current": 0,
-      "max": 4,
-      "note": "Raid the hidden root-cellar drop beneath Dead Man's Drink; seize documents; catch/flip Nenya; snap the local network."
-    },
-    "dragonbreak_reality_frayed": {
       "current": 4,
       "max": 4,
-      "note": "THRESHOLD: Dragonbreak recoil is at max; a compel/payment event must hit within the next beat."
+      "note": "THRESHOLD: Siddgeir removed from practical authority; Moot demanded; guard command shifting to Eltric's control."
+    },
+    "evidence_chain_secured": {
+      "current": 3,
+      "max": 3,
+      "note": "COMPLETE: Evidence bagged/marked; witness statements logged; riders dispatched to Whiterun and Windhelm."
+    },
+    "dead_mans_drink_cellar_raid": {
+      "current": 4,
+      "max": 4,
+      "note": "COMPLETE: Hidden Thalmor drop seized (cipher packet, ledger strip, filed coins); ambush neutralized; chain of custody established."
+    },
+
+    "dragonbreak_reality_frayed": {
+      "current": 0,
+      "max": 4,
+      "note": "RESET: Dragonbreak recoil paid; counter cleared; track the next fray event."
+    },
+
+    "nenya_break_or_bolt": {
+      "current": 4,
+      "max": 4,
+      "note": "RESOLVED: Nenya captured alive, bound, and transferred under witness to Falkreath dungeons."
+    },
+    "falkreath_moot_election": {
+      "current": 1,
+      "max": 4,
+      "note": "Moot called to elect the next Jarl of Falkreath. Fill = Jarl decided + legitimacy secured."
     }
   }
 }
