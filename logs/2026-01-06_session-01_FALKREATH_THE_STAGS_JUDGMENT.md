@@ -1,5 +1,3 @@
-<Agent, update all of which is given, exactly where it need be, and exactly how it is said.>
-
 <<GAME SAVED>>
 
 Falkreath did not sleep that night.

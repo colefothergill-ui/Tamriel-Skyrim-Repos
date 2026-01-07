@@ -161,7 +161,7 @@
     "dragonbreak_reality_frayed": {
       "current": 0,
       "max": 4,
-      "note": "THRESHOLD: Dragonbreak recoil is at max; a compel/payment event must hit within the next beat."
+      "note": "RESET: Dragonbreak recoil paid; counter cleared; track the next fray event."
     },
     "nenya_break_or_bolt": {
       "current": 4,
