@@ -405,8 +405,6 @@ https://elderscrolls.fandom.com/wiki/Thalmor_Dossier:_Ulfric_Stormcloak
 https://en.uesp.net/wiki/Skyrim:Whiterun
 9 10 Clocks in Fate : r/FATErpg
 https://www.reddit.com/r/FATErpg/comments/mosblz/clocks_in_fate/
-13 14 World of Warcraft_ BFA Module.pdf
-file://file_00000000536471fd932da4a4f6201a4a
 20 25 26 27 37 Skyrim:Jarl - UESP Wiki - The Unofficial Elder Scrolls Pages
 https://en.uesp.net/wiki/Skyrim:Jarl
 28 29 30 31 Skyrim:Dawnstar - The Unofficial Elder Scrolls Pages (UESP)

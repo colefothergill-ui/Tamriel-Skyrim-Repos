@@ -47,6 +47,14 @@ EXCLUDE_DIRS = [
     "__pycache__",
 ]
 
+# Files to exclude from scanning (allowed to reference banned terms for documentation purposes)
+EXCLUDE_FILES = [
+    "copilot-instructions.md",  # Copilot instructions document the rules
+    "REPOSITORY_FIXES_SUMMARY.md",  # Documents what was fixed
+    "QUICK_START_AFTER_FIXES.md",  # References fixes made
+    "custom_scan.py",  # This script itself contains the banned terms list
+]
+
 
 def should_scan_file(file_path: Path) -> bool:
     """Return True if the file should be scanned for banned terms."""
@@ -54,12 +62,8 @@ def should_scan_file(file_path: Path) -> bool:
         if exclude_dir in file_path.parts:
             return False
 
-    # Skip the copilot-instructions.md as it's allowed to reference banned terms
-    if file_path.name == "copilot-instructions.md":
-        return False
-
-    # Skip this script itself
-    if file_path.name == "custom_scan.py":
+    # Check if filename is in exclusion list
+    if file_path.name in EXCLUDE_FILES:
         return False
 
     return True

@@ -1876,8 +1876,6 @@ Skyrim:Whiterun - UESP Wiki - The Unofficial Elder Scrolls Pages
 https://en.uesp.net/wiki/Skyrim:Whiterun
 Clocks in Fate : r/FATErpg
 https://www.reddit.com/r/FATErpg/comments/mosblz/clocks_in_fate/
-World of Warcraft_ BFA Module.pdf
-file://file_00000000536471fd932da4a4f6201a4a
 Skyrim:Jarl - UESP Wiki - The Unofficial Elder Scrolls Pages
 https://en.uesp.net/wiki/Skyrim:Jarl
 Skyrim:Dawnstar - The Unofficial Elder Scrolls Pages (UESP)
