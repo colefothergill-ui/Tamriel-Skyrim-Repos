@@ -158,11 +158,13 @@
       "max": 4,
       "note": "COMPLETE: Hidden Thalmor drop seized (cipher packet, ledger strip, filed coins); ambush neutralized; chain of custody established."
     },
+
     "dragonbreak_reality_frayed": {
       "current": 0,
       "max": 4,
       "note": "RESET: Dragonbreak recoil paid; counter cleared; track the next fray event."
     },
+
     "nenya_break_or_bolt": {
       "current": 4,
       "max": 4,
