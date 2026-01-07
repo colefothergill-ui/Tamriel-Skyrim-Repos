@@ -8,12 +8,12 @@
     "bleak_falls_retrieved": false,
     "dragonstone_delivered": false,
     "whiterun_battle_started": true,
-    "whiterun_battle_complete": false,
+    "whiterun_battle_complete": true,
     "civil_war_joined": true,
     "civil_war_side": "stormcloak",
-    "thalmor_evidence_found": false,
-    "thalmor_evidence_revealed": false,
-    "whiterun_flip_in_progress": true,
+    "thalmor_evidence_found": true,
+    "thalmor_evidence_revealed": true,
+    "whiterun_flip_in_progress": false,
     "ulfric_restraint_oath_sworn": true
   },
   "faction_quest_flags": {
